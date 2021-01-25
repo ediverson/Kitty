@@ -3,7 +3,7 @@ import UIKit
 // 1. Можно ли ограничить протокол только для классов?
 
 // можно
-protocol ClassOnly: AnyObject{
+protocol ClassOnly: Any{
     var string: String {get}
 }
 
@@ -13,18 +13,51 @@ protocol ClassOnly: AnyObject{
 // можно
 @objc protocol Optional{
     @objc optional func opt()
+    var prit: String? {get}
+    func game()
+    
 }
 
 
 //3. Можно ли в extension создавать хранимые свойства (stored property)?
 
 // нет, но можно создать через инициализацию
-extension Int {
-    init(p: Int){
-        _ = p
-        self.init()
+
+class Move{
+    var value = 2
+}
+
+extension Move {
+    
+    private static var person = "Marry"
+    
+    var persons: String{
+        get{
+            return Move.person
+        }
+    }
+    
+    
+    private struct Make {
+        static var one = 1
+    }
+    
+    var number: Int{
+        get{
+            return Make.one
+        }
+        set{
+            Make.one = newValue
+        }
     }
 }
+
+
+
+
+let make = Move()
+make.number
+make.persons
 
 // 4. Можно ли в extension объявлять вложенные типы, а именно: классы/структуры/перечисления/протоколы.
 
@@ -33,6 +66,12 @@ extension Int {
 extension String{
     struct Struct{
         let value = ""
+    }
+    class Move {
+        let value = ""
+    }
+    enum Anumal {
+        case bird
     }
 }
 
@@ -92,10 +131,18 @@ protocol All: ReadOnly, Init, Optional, ClassOnly{
 
 // нет, единственное ограничение подобного плана: протокол, доступный только для классов
 
+
 //10. Можно ли определить тип, который реализует одновременно несколько несвязанных между собой протоколов?
 // да
 
+
 class Alls: ClassOnly, Optional, ReadOnly{
+    var prit: String?
+    
+    func game() {
+        <#code#>
+    }
+    
     var string: String = ""
     
     var property: Int = 0
@@ -105,3 +152,4 @@ class Alls: ClassOnly, Optional, ReadOnly{
     }
     
 }
+
