@@ -75,8 +75,31 @@ var anotherInt = "3"
 replace(&someInt, &anotherInt)
 
 //6.4
-increment()
-// тут пока еще не нашел даже приблизительного решения, буду думать дальше
+//ближайшее, что я смог сделать. Совсем не понимаю, что именно должно получиться
+typealias pops<T> = (T) -> Void
+typealias lops = ()
+var some = 0
+
+func one<T>(_ value: T){
+    some += 1
+}
+func two<T>(_ value: T){
+    some += 1
+    
+}
+
+func three<T>(_ c: T){
+    one(T.self)
+    two(T.self)
+    some += 1
+}
+//let test = three
+
+
+//func oneTwo<T>(_ a: (T) -> Void, _ b: (T) -> Void) -> ((T) -> Void){
+//    return test
+//}
+
 
 //7.1
 
