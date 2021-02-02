@@ -4,34 +4,28 @@ var count = 0
 func increment() {
     count += 1
 }
-func newPrint<T>(_ a: T, _ b: T){
-    print("6.\(count) –– a = \(a), b = \(b)")
-}
+func newPrint<T>(_ a: T?, _ b: T?) {
+    if a != nil && b == nil{
+        print("6.\(count) –– a = \(a!)")
+    } else if a == nil && b != nil {
+        print("6.\(count) –– b = \(b!)")
+    } else {
+        print("6.\(count) –– a = \(a!), b = \(b!)")
+    }
+    
+} // выглядит не так элегантно, как было изначально, зато обрабатывает все нужные задачи
 
 protocol Summable { static func +(lhs: Self, rhs: Self) -> Self }
 protocol Multiplicable { static func *(lhs: Self, rhs: Self) -> Self }
 // решил воспользоваться наработками из прошлой домашки, чтобы сделать текущий код более универсальным
 
 
-//4
-/*
- Дженерики нужны для того, чтобы сделать код гибким и переиспользуемым. Так мы указав дженерик вместо типа, можем использовать разные типы, а не один заданный изначально. Соответственно мы значительно сокращаем код
- */
-
-//5
-/*
- Если уж честно, то это практически одно и то же, только в разных обертках. Основная разница в том, что ассоциативные типы мы используем в основом в протоколах, чтобы задать плейсхолдер для типа, который еще не обозначен, а дженерики по большей части нужны для объявления в функциях
- Так же в ассоциативных типах мы можем легко указать тип, после еще и ограничение поставить.
- Пример: associatedtype Suffix: SuffixableContainer where Suffix.Item == Item
- */
-
-
 //6.1
 increment()
-func equate<T: Equatable>(_ a: T, _ b: T){
-    if a == b{
+func equate<T: Equatable>(_ a: T, _ b: T) {
+    if a == b {
         newPrint(a, b)
-    }else{
+    } else {
         newPrint(a, b)
     }
 }
@@ -40,72 +34,55 @@ equate("1", "2")
 
 //6.2
 increment()
-func compare<T: Comparable>(_ a: T, _ b: T){
-    if a > b{
-        newPrint(a, b)
-    }else if a < b{
-        newPrint(a, b)
-    }else{
+func compare<T: Comparable>(_ a: T, _ b: T) {
+    if a > b {
+        newPrint(a, nil)
+    } else if a < b {
+        newPrint(nil, b)
+    } else {
         newPrint(a, b)
     }
 }
 compare(3, 5)
+compare(3.2, 3.1)
 compare("2", "2")
 
 
 //6.3
-increment()
-func replace<T: Comparable>(_ a: inout T, _ b: inout T){
-    if a > b{
+func replace<T: Comparable>(_ a: inout T, _ b: inout T) {
+    if a > b {
         let tempA = a
         a = b
         b = tempA
-        newPrint(a, b)
-    }else if a < b{
-        let tempB = b
-        b = a
-        a = tempB
-        newPrint(a, b)
-    }else{
-        newPrint(a, b)
     }
 }
 var someInt = "5"
 var anotherInt = "3"
 replace(&someInt, &anotherInt)
+someInt
+anotherInt
 
 //6.4
-//ближайшее, что я смог сделать. Совсем не понимаю, что именно должно получиться
-typealias pops<T> = (T) -> Void
-typealias lops = ()
-var some = 0
 
-func one<T>(_ value: T){
-    some += 1
+func carry<T>(_ a: @escaping (T) -> Void, _ b: @escaping (T) -> Void) -> ((T) -> Void){
+    return {
+        a($0)
+        b($0)
+    }
 }
-func two<T>(_ value: T){
-    some += 1
-    
-}
+// @escaping – указываем, что параметры a и b возвращат значения после того, как возвращает значение сама функция
+// $0 - вызываем неназыванный параметр функции, который на данный момент имеет тип Т
+// возвращаем мы замыкание (а не функцию), в котором вызываем оба входных параметра, которые так же являютя замыканиями, иу этих параметров вызываем их же неназыванный параметр
 
-func three<T>(_ c: T){
-    one(T.self)
-    two(T.self)
-    some += 1
-}
-//let test = three
-
-
-//func oneTwo<T>(_ a: (T) -> Void, _ b: (T) -> Void) -> ((T) -> Void){
-//    return test
-//}
-
+carry( { print("\($0) a") }, { print("\($0) b") })("Hihi")
+// тут мы вызываем функцию carry, в которую передаем два замыкания, которые принтят наше неназванное значение.
+// значение в скобках после функции –– и есть этот неназыванный параметр, который передается в замыкания a и b
 
 //7.1
 
-extension Array  where Element: Comparable{
+extension Array  where Element: Comparable {
     
-    var maxEl: Element?{
+    var maxEl: Element? {
             let result = self.sorted(){$0 < $1}
             return result.last ?? nil
     }
@@ -168,9 +145,8 @@ func ^^(left: Int, right: Int) -> Int{
 //8.2
 
 infix operator ~>
-func ~><T: Summable>(left: T, right: inout T) -> T?{
+func ~><T: Summable>(left: T, right: inout T) {
         right = left + left
-    return right
 }
 
 var a = "0"
@@ -183,15 +159,15 @@ var c = 0
 //8.3
 infix operator <*
 
-extension UIViewController: UITableViewDelegate{
+extension UIViewController: UITableViewDelegate {
     static func <*(left: UIViewController, right: UITableView) -> UITableViewDelegate{
         right.delegate = left
         return left
     }
 }
 
-class View: UIViewController{ }
-class TableView: UITableView{ }
+class View: UIViewController { }
+class TableView: UITableView { }
 
 var view = View()
 var table = TableView()
@@ -201,15 +177,15 @@ view <* table
 //8.4
 infix operator +++
 
-func +++<T: Summable>(left: T, right: String) -> String{
-    return "\(left)" + right
+func +++<T: Summable>(left: T, right: String) -> String {
+    return String(describing: left) + right
 }
 
 b+++a
 c+++a
 
 //9
-protocol Animator{
+protocol Animator {
     associatedtype Target
     associatedtype Value
     
@@ -218,7 +194,7 @@ protocol Animator{
     func form(target: Target, x: Value, y: Value)
 }
 
-class Animate: Animator{
+class Animate: Animator {
     func background(target: UIView, color: UIColor) {
         UIView.animate(withDuration: 0.5) {
             target.backgroundColor = color
@@ -236,10 +212,10 @@ class Animate: Animator{
     }
 }
 
-class newView: UIView{
+class NewView: UIView {
     let change = Animate()
     
-    func changeView(){
+    func changeView() {
         change.background(target: self, color: .red)
         change.form(target: self, x: 20, y: 20)
         change.viewCenter(target: self, x: 5, y: 5)
