@@ -72,7 +72,7 @@ extension Array where Element: Hashable {
     var uniques: Array {
          var added = Set<Element>()
          return filter { element in
-             defer { added.insert(element) }
+              added.insert(element)
              return !added.contains(element)
          }
      }
