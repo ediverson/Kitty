@@ -1,19 +1,4 @@
 import UIKit
-// Вспомогательные инструменты
-var count = 0
-func increment() {
-    count += 1
-}
-func newPrint<T>(_ a: T?, _ b: T?) {
-    if a != nil && b == nil{
-        print("6.\(count) –– a = \(a!)")
-    } else if a == nil && b != nil {
-        print("6.\(count) –– b = \(b!)")
-    } else {
-        print("6.\(count) –– a = \(a!), b = \(b!)")
-    }
-    
-} // выглядит не так элегантно, как было изначально, зато обрабатывает все нужные задачи
 
 protocol Summable { static func +(lhs: Self, rhs: Self) -> Self }
 protocol Multiplicable { static func *(lhs: Self, rhs: Self) -> Self }
@@ -21,28 +6,12 @@ protocol Multiplicable { static func *(lhs: Self, rhs: Self) -> Self }
 
 
 //6.1
-increment()
-func equate<T: Equatable>(_ a: T, _ b: T) {
-    if a == b {
-        newPrint(a, b)
-    } else {
-        newPrint(a, b)
-    }
-}
+func equate<T: Equatable>(_ a: T, _ b: T) { print(a == b ? "equal" : "not equal") }
 equate(1, 1)
 equate("1", "2")
 
 //6.2
-increment()
-func compare<T: Comparable>(_ a: T, _ b: T) {
-    if a > b {
-        newPrint(a, nil)
-    } else if a < b {
-        newPrint(nil, b)
-    } else {
-        newPrint(a, b)
-    }
-}
+func compare<T: Comparable>(_ a: T, _ b: T) { print(a > b ? a : b) }
 compare(3, 5)
 compare(3.2, 3.1)
 compare("2", "2")
@@ -50,11 +19,7 @@ compare("2", "2")
 
 //6.3
 func replace<T: Comparable>(_ a: inout T, _ b: inout T) {
-    if a > b {
-        let tempA = a
-        a = b
-        b = tempA
-    }
+    if a > b { swap(&a, &b) }
 }
 var someInt = "5"
 var anotherInt = "3"
@@ -74,7 +39,7 @@ func carry<T>(_ a: @escaping (T) -> Void, _ b: @escaping (T) -> Void) -> ((T) ->
 // $0 - вызываем неназыванный параметр функции, который на данный момент имеет тип Т
 // возвращаем мы замыкание (а не функцию), в котором вызываем оба входных параметра, которые так же являютя замыканиями, иу этих параметров вызываем их же неназыванный параметр
 
-carry( { print("\($0) a") }, { print("\($0) b") })("Hihi")
+carry({ print("\($0) a") }, { print("\($0) b") })("Hihi")
 // тут мы вызываем функцию carry, в которую передаем два замыкания, которые принтят наше неназванное значение.
 // значение в скобках после функции –– и есть этот неназыванный параметр, который передается в замыкания a и b
 
@@ -83,34 +48,39 @@ carry( { print("\($0) a") }, { print("\($0) b") })("Hihi")
 extension Array  where Element: Comparable {
     
     var maxEl: Element? {
-            let result = self.sorted(){$0 < $1}
-            return result.last ?? nil
+        return self.max()
     }
 }
 var array: [Int] = [1,2,3,2]
 array.maxEl
+let newarray = array.max()
 
 //7.2
 
-//extension Array where Element:Equatable {
-//
-//    func removeDuplicates() -> [Element] {
-//        var result = [Element]()
-//
-//        for (index, value) in self.enumerated() {
-//
-//            if result.contains(value) == false {
-//                result.append(value)
-//            }
-////            }else{
-////                print("–",self[index], value, result)
-////                result.remove(at: self[index - 1] as! Int)
-////            }
-//        }
-//        return result
-//    }
-//}
-//array.removeDuplicates()
+extension Array where Element: Hashable {
+
+    func removeDuplicates() -> [Element] {
+        var result = [Element]()
+
+        for value in self {
+            if result.contains(value) == false {
+                result.append(value)
+            }
+        }
+        return result
+    }
+    var uniques: Array {
+         var added = Set<Element>()
+         return filter { element in
+             defer { added.insert(element) }
+             return !added.contains(element)
+         }
+     }
+ }
+
+array.removeDuplicates()
+array.uniques
+
 
 
 extension Int: Summable, Multiplicable { }
