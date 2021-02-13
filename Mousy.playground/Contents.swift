@@ -252,27 +252,30 @@ let newarray = array.max()
 //7.2
 
 extension Array where Element: Hashable {
-
-    func removeDuplicates() -> [Element] {
-        var result = [Element]()
-
-        for value in self {
-            if result.contains(value) == false {
-                result.append(value)
-            }
-        }
-        return result
-    }
     var uniques: Array {
-         var added = Set<Element>()
-         return filter { element in
-              added.insert(element)
-             return !added.contains(element)
-         }
-     }
+        return Array(Set(self))
+    }
+
+//    func removeDuplicates() -> [Element] {
+//        var result = [Element]()
+//
+//        for value in self {
+//            if result.contains(value) == false {
+//                result.append(value)
+//            }
+//        }
+//        return result
+//    }
+//    var uniques: Array {
+//         var added = Set<Element>()
+//         return filter { element in
+//              added.insert(element)
+//             return !added.contains(element)
+//         }
+//     }
  }
 
-array.removeDuplicates()
+//array.removeDuplicates()
 array.uniques
 
 
