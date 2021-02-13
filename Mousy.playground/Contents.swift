@@ -278,8 +278,6 @@ extension Array where Element: Hashable {
 //array.removeDuplicates()
 array.uniques
 
-
-
 extension Int: Summable, Multiplicable { }
 extension String: Summable { }
 extension Double: Summable, Multiplicable { }
