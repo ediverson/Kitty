@@ -3,23 +3,68 @@ import UIKit
 
 // 1. Используя generic типы, реализовать структуру данных Stack.
 struct Stack<Element>{
-    var value: [Element]
+    var value = [Element]()
     
-    mutating func append(with el: Element){
+    var count : Int {
+            return value.count
+        }
+    
+    mutating func push(with el: Element){
         value.append(el)
     }
-    mutating func remove(){
+    mutating func pop() -> Element?{
         value.removeLast()
     }
 }
 
-var p = Stack(value: [1,2,3,4])
-p.remove()
 
-p.append(with: 2)
+var s1 = Stack(value: [1,2,3,2])
+var s2 = Stack(value: [5,6,7,8])
+
+s1.pop()
+s1.push(with: 4)
+
+
+
 
 
 //2. Реализовать очередь Queue.
+
+struct Queqe<Element>{
+    var s1 = Stack<Element>()
+    var s2 = Stack<Element>()
+    
+    mutating func enqueue(_ item: Element){
+        s1.push(with: item)
+    }
+    mutating func dequeue() -> Element? {
+           fill()
+           return s2.pop()
+       }
+    private mutating func fill() {
+           if s2.count == 0 {
+               while s1.count != 0 {
+                s2.push(with: s1.pop()!)
+               }
+           }
+    }
+}
+
+s1.value
+s2.value
+
+var s3 = Queqe(s1: s1, s2: s2)
+s3.dequeue()
+s3.dequeue()
+s3.dequeue()
+s3.dequeue()
+s3.dequeue()
+s3.dequeue()
+s3.dequeue()
+
+s3.s1.value
+s3.s2.value
+        
 DispatchQueue.main.async { // выполняем задачу на основном потоке
     print(1)
 }
@@ -176,9 +221,36 @@ struct AnyHashableConversation: ConversationProtocol {
 // Use our existing Hashable implementation
 extension AnyHashableConversation: Hashable {}
 //10. Реализовать любой infix, prefix, postfix операторы.
-var seven = 7
-let one = 1
-while seven != 10 {
-    seven += one
+
+protocol Multiplicable { static func *(lhs: Self, rhs: Self) -> Self }
+extension Int: Multiplicable {}
+
+ // postfix
+postfix operator ^^
+postfix func ^^<T: Multiplicable>(value: T) -> T{
+    return value * value
 }
-// на самом деле нашел тут интересную страничку https://riptutorial.com/swift/example/23548/precedence-of-standard-swift-operators. По сути тут расписаны приоритет и ассоциативность для каждого оператора. Интересно тут то, что для таких базовых операторов как + или - приоритет не указан, плюс стоят они выше, чем * или %, хотя очевидно их приоритет ниже. А еще было любопытно узнать, что пробел –– тоже считается оператором
+
+6^^
+
+// infix
+infix operator ≠
+func ≠<T: Equatable>(left: T, right: T) -> Bool{
+    if left != right {
+        return true
+    }
+    return false
+}
+
+"abc"≠"adc"
+
+// prefix
+prefix operator %%
+prefix func %%(value: Int) -> String{
+    if value % 2 == 0{
+        return "четное"
+    }
+    return "нечетное"
+}
+
+%%1
