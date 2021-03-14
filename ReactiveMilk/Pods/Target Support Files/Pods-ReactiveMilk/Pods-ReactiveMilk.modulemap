@@ -1,6 +1,0 @@
-framework module Pods_ReactiveMilk {
-  umbrella header "Pods-ReactiveMilk-umbrella.h"
-
-  export *
-  module * { export * }
-}
