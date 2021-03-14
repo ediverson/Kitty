@@ -1,0 +1,434 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 51;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		3AB4199125FA731A00BC5E06 /* TableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AB4199025FA731A00BC5E06 /* TableVC.swift */; };
+		3AB4199425FA940500BC5E06 /* TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AB4199325FA940500BC5E06 /* TableView.swift */; };
+		3AB419A125FBEBE800BC5E06 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AB419A025FBEBE800BC5E06 /* Model.swift */; };
+		3AFA013225F2C085006DD99E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AFA013125F2C085006DD99E /* AppDelegate.swift */; };
+		3AFA013425F2C085006DD99E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AFA013325F2C085006DD99E /* SceneDelegate.swift */; };
+		3AFA013625F2C085006DD99E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AFA013525F2C085006DD99E /* ViewController.swift */; };
+		3AFA013925F2C085006DD99E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3AFA013725F2C085006DD99E /* Main.storyboard */; };
+		3AFA013B25F2C089006DD99E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3AFA013A25F2C089006DD99E /* Assets.xcassets */; };
+		3AFA013E25F2C089006DD99E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3AFA013C25F2C089006DD99E /* LaunchScreen.storyboard */; };
+		9747CF0C1C7E52664EC8931A /* Pods_Reactive_Milk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5460D7C50B1C279EA41F114F /* Pods_Reactive_Milk.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		3AB4199025FA731A00BC5E06 /* TableVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableVC.swift; sourceTree = "<group>"; };
+		3AB4199325FA940500BC5E06 /* TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableView.swift; sourceTree = "<group>"; };
+		3AB419A025FBEBE800BC5E06 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		3AFA012E25F2C085006DD99E /* Reactive Milk.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Reactive Milk.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3AFA013125F2C085006DD99E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		3AFA013325F2C085006DD99E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		3AFA013525F2C085006DD99E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		3AFA013825F2C085006DD99E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		3AFA013A25F2C089006DD99E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		3AFA013D25F2C089006DD99E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		3AFA013F25F2C089006DD99E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5460D7C50B1C279EA41F114F /* Pods_Reactive_Milk.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Reactive_Milk.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D2446DC8044E6C66FD399DC8 /* Pods-Reactive Milk.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Reactive Milk.release.xcconfig"; path = "Target Support Files/Pods-Reactive Milk/Pods-Reactive Milk.release.xcconfig"; sourceTree = "<group>"; };
+		E7BAF3358070CC3FD0CB40F2 /* Pods-Reactive Milk.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Reactive Milk.debug.xcconfig"; path = "Target Support Files/Pods-Reactive Milk/Pods-Reactive Milk.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		3AFA012B25F2C085006DD99E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9747CF0C1C7E52664EC8931A /* Pods_Reactive_Milk.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		3AB419A325FBEC1100BC5E06 /* TableView Task */ = {
+			isa = PBXGroup;
+			children = (
+				3AB4199325FA940500BC5E06 /* TableView.swift */,
+				3AB419A025FBEBE800BC5E06 /* Model.swift */,
+			);
+			path = "TableView Task";
+			sourceTree = "<group>";
+		};
+		3AFA012525F2C085006DD99E = {
+			isa = PBXGroup;
+			children = (
+				3AFA013025F2C085006DD99E /* Reactive Milk */,
+				3AFA012F25F2C085006DD99E /* Products */,
+				CC87C4A26580A0598A805A0E /* Pods */,
+				C823BC851F34FF344733CD75 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		3AFA012F25F2C085006DD99E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				3AFA012E25F2C085006DD99E /* Reactive Milk.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		3AFA013025F2C085006DD99E /* Reactive Milk */ = {
+			isa = PBXGroup;
+			children = (
+				3AFA013125F2C085006DD99E /* AppDelegate.swift */,
+				3AFA013325F2C085006DD99E /* SceneDelegate.swift */,
+				3AFA013525F2C085006DD99E /* ViewController.swift */,
+				3AFA013725F2C085006DD99E /* Main.storyboard */,
+				3AB419A325FBEC1100BC5E06 /* TableView Task */,
+				3AB4199025FA731A00BC5E06 /* TableVC.swift */,
+				3AFA013A25F2C089006DD99E /* Assets.xcassets */,
+				3AFA013C25F2C089006DD99E /* LaunchScreen.storyboard */,
+				3AFA013F25F2C089006DD99E /* Info.plist */,
+			);
+			path = "Reactive Milk";
+			sourceTree = "<group>";
+		};
+		C823BC851F34FF344733CD75 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5460D7C50B1C279EA41F114F /* Pods_Reactive_Milk.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		CC87C4A26580A0598A805A0E /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				E7BAF3358070CC3FD0CB40F2 /* Pods-Reactive Milk.debug.xcconfig */,
+				D2446DC8044E6C66FD399DC8 /* Pods-Reactive Milk.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		3AFA012D25F2C085006DD99E /* Reactive Milk */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3AFA014225F2C089006DD99E /* Build configuration list for PBXNativeTarget "Reactive Milk" */;
+			buildPhases = (
+				5E7B727D96C0396F203BBAAF /* [CP] Check Pods Manifest.lock */,
+				3AFA012A25F2C085006DD99E /* Sources */,
+				3AFA012B25F2C085006DD99E /* Frameworks */,
+				3AFA012C25F2C085006DD99E /* Resources */,
+				4E376B2DB6D8D3E1E11BDC3B /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Reactive Milk";
+			productName = "Reactive Milk";
+			productReference = 3AFA012E25F2C085006DD99E /* Reactive Milk.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		3AFA012625F2C085006DD99E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1240;
+				LastUpgradeCheck = 1240;
+				TargetAttributes = {
+					3AFA012D25F2C085006DD99E = {
+						CreatedOnToolsVersion = 12.4;
+					};
+				};
+			};
+			buildConfigurationList = 3AFA012925F2C085006DD99E /* Build configuration list for PBXProject "Reactive Milk" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 3AFA012525F2C085006DD99E;
+			productRefGroup = 3AFA012F25F2C085006DD99E /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				3AFA012D25F2C085006DD99E /* Reactive Milk */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		3AFA012C25F2C085006DD99E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3AFA013E25F2C089006DD99E /* LaunchScreen.storyboard in Resources */,
+				3AFA013B25F2C089006DD99E /* Assets.xcassets in Resources */,
+				3AFA013925F2C085006DD99E /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		4E376B2DB6D8D3E1E11BDC3B /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Reactive Milk/Pods-Reactive Milk-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Reactive Milk/Pods-Reactive Milk-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Reactive Milk/Pods-Reactive Milk-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5E7B727D96C0396F203BBAAF /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Reactive Milk-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		3AFA012A25F2C085006DD99E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3AFA013625F2C085006DD99E /* ViewController.swift in Sources */,
+				3AB4199425FA940500BC5E06 /* TableView.swift in Sources */,
+				3AB4199125FA731A00BC5E06 /* TableVC.swift in Sources */,
+				3AB419A125FBEBE800BC5E06 /* Model.swift in Sources */,
+				3AFA013225F2C085006DD99E /* AppDelegate.swift in Sources */,
+				3AFA013425F2C085006DD99E /* SceneDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		3AFA013725F2C085006DD99E /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3AFA013825F2C085006DD99E /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		3AFA013C25F2C089006DD99E /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3AFA013D25F2C089006DD99E /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		3AFA014025F2C089006DD99E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		3AFA014125F2C089006DD99E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		3AFA014325F2C089006DD99E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E7BAF3358070CC3FD0CB40F2 /* Pods-Reactive Milk.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "Reactive Milk/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "set.Reactive-Milk";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		3AFA014425F2C089006DD99E /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D2446DC8044E6C66FD399DC8 /* Pods-Reactive Milk.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "Reactive Milk/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "set.Reactive-Milk";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		3AFA012925F2C085006DD99E /* Build configuration list for PBXProject "Reactive Milk" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3AFA014025F2C089006DD99E /* Debug */,
+				3AFA014125F2C089006DD99E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3AFA014225F2C089006DD99E /* Build configuration list for PBXNativeTarget "Reactive Milk" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3AFA014325F2C089006DD99E /* Debug */,
+				3AFA014425F2C089006DD99E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 3AFA012625F2C085006DD99E /* Project object */;
+}
