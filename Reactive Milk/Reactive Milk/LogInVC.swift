@@ -2,7 +2,7 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-class ViewController: UIViewController {
+class LogInVC: UIViewController {
     
 // Outlets
     @IBOutlet weak var emailTextField: UITextField!
