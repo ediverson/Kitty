@@ -113,7 +113,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NhM-9V-QR9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4495.652173913044" y="112.5"/>
+            <point key="canvasLocation" x="1832" y="1574"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="FtD-IL-9Rs">
@@ -128,16 +128,20 @@
                     <connections>
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="ehJ-lE-LlS"/>
                         <segue destination="eKE-Wd-SrO" kind="relationship" relationship="viewControllers" id="5gS-Fg-S3a"/>
+                        <segue destination="Oxc-LS-w09" kind="relationship" relationship="viewControllers" id="mvg-Dj-fnH"/>
+                        <segue destination="PLv-Ou-JKB" kind="relationship" relationship="viewControllers" id="idf-50-N5r"/>
+                        <segue destination="uFi-2e-R0e" kind="relationship" relationship="viewControllers" id="b8N-bI-35l"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hto-9m-aC1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="13.043478260869566" y="94.419642857142847"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Task 3-->
         <scene sceneID="cbz-iP-VQw">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Oxc-LS-w09" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Task 3" id="7MK-D3-OfA"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="bm0-G7-QEc">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -150,7 +154,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Dfm-qE-A5f" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3585.507246376812" y="112.5"/>
+            <point key="canvasLocation" x="922" y="1574"/>
         </scene>
         <!--Server RequestVC-->
         <scene sceneID="kBB-gU-lxX">
@@ -174,7 +178,7 @@
                     <navigationItem key="navigationItem" id="ERy-PS-IOd">
                         <nil key="title"/>
                         <textField key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" id="DB1-uo-Wl8">
-                            <rect key="frame" x="15" y="5" width="374" height="34"/>
+                            <rect key="frame" x="20" y="5" width="374" height="34"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <textInputTraits key="textInputTraits"/>
@@ -208,10 +212,94 @@
             </objects>
             <point key="canvasLocation" x="921.73913043478262" y="829.6875"/>
         </scene>
+        <!--Task 4-->
+        <scene sceneID="8Uf-3D-VnU">
+            <objects>
+                <viewController id="PLv-Ou-JKB" customClass="CounterVC" customModule="Reactive_Milk" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="4le-BR-4tv">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D54-hn-BR7">
+                                <rect key="frame" x="171" y="433" width="73" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Добавить "/>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MEx-cH-Asv">
+                                <rect key="frame" x="20" y="202" width="374" height="76"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="tX4-gy-InJ"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Task 4" id="hHW-kt-4ZR"/>
+                    <connections>
+                        <outlet property="countButton" destination="D54-hn-BR7" id="tYR-Bc-wOS"/>
+                        <outlet property="countLabel" destination="MEx-cH-Asv" id="f73-zC-Dpf"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qa3-Cd-H42" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="922" y="2259"/>
+        </scene>
+        <!--Task 5-->
+        <scene sceneID="UsP-eO-bgO">
+            <objects>
+                <viewController id="uFi-2e-R0e" customClass="RocketVC" customModule="Reactive_Milk" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="mUC-Po-GoU">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cod-gz-EK7">
+                                <rect key="frame" x="20" y="628" width="150" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemGray5Color"/>
+                                <state key="normal" title="Запуск"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JBx-W9-sFz">
+                                <rect key="frame" x="244" y="628" width="150" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemGray5Color"/>
+                                <state key="normal" title="Launch"/>
+                            </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Jtj-Nn-YYB">
+                                <rect key="frame" x="132" y="435" width="150" height="150"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yDV-0O-I3K">
+                                <rect key="frame" x="107" y="593" width="200" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Uqv-PT-lfs"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Task 5" id="Ukc-VZ-Qjy"/>
+                    <connections>
+                        <outlet property="infoLable" destination="yDV-0O-I3K" id="nok-i4-Rar"/>
+                        <outlet property="launchButton" destination="JBx-W9-sFz" id="dYs-qz-qak"/>
+                        <outlet property="rocketImageView" destination="Jtj-Nn-YYB" id="Uiu-cz-zqV"/>
+                        <outlet property="zapuskButton" destination="cod-gz-EK7" id="dV1-jA-X1E"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="S5z-QE-Qtg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="922" y="3023"/>
+        </scene>
     </scenes>
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGray5Color">
+            <color red="0.89803921568627454" green="0.89803921568627454" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

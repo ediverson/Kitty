@@ -14,7 +14,7 @@ class LogInVC: UIViewController {
     private var validPass: Observable<Bool?>!
     
 // helpers
-    private let time: RxTimeInterval = .milliseconds(300)
+    private let time: RxTimeInterval = .milliseconds(800)
     private let bag = DisposeBag()
     
     override func viewDidLoad() {
@@ -62,11 +62,13 @@ class LogInVC: UIViewController {
             .rx                                                     // вызываем rx функционал
             .text                                                   // работаем с текстом
             .orEmpty                                                // защита от nil + развертываем из опционала
-            .skip(1)                                                // пропускаем значение при создании
             .observeOn(MainScheduler.asyncInstance)                 // для асинхронной работы
             .throttle(time, scheduler: MainScheduler.instance)      // уменьшаем частоту запросов и просим работать на главном потоке
                                                                         /// scheduler - не поток, а контекст,
                                                                         /// в который мы оборачиваем что-то, в этом случае обернули поток
+            .skipWhile {                                            // пропускаем пустое нажатие
+                $0 == ""
+            }
             .map { [weak self] in
                 self?.loginValid(value: $0)                         // valid check через специальный метод (он ниже)
             }
@@ -94,9 +96,11 @@ class LogInVC: UIViewController {
             .rx
             .text
             .orEmpty
-            .skip(1)
             .observeOn(MainScheduler.asyncInstance)
             .throttle(time, scheduler: MainScheduler.instance)
+            .skipWhile {
+                $0 == ""
+            }
             .map { [weak self] in
                 self?.passValid(value: $0)
             }
