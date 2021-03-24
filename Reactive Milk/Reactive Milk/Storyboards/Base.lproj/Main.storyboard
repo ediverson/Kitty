@@ -277,7 +277,7 @@
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Uqv-PT-lfs"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Task 5" id="Ukc-VZ-Qjy"/>
                     <connections>

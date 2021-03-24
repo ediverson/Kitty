@@ -29,25 +29,24 @@ class RocketVC: UIViewController {
         let mainObs = Observable<Bool>
             .combineLatest(zapuskObs, launchObs) { (left, right) -> Bool in                         // комбинируем два нажатия
                 guard left == true && right == true else { return false }
-                ///print("l:", left, "r:", right)
+                print("l:", left, "r:", right)
                 return left && right                                                                // выводим результат в виде Bool
             }
             .share(replay: 2)
         
         mainObs
-            .do(onNext: {_ in
-                self.launchAnimation()                                                              // запускаем
+            .do(onNext: {el in
+                self.launchAnimation(bool: el)                                                              // запускаем
             })
             .delay(RxTimeInterval.seconds(Int(duration)), scheduler: MainScheduler.instance)
-            .do(onNext: {_ in
-                self.returnAnimation()                                                              // возвращаем
+            .do(onNext: {el in
+                self.returnAnimation(bool: el)                                                              // возвращаем
             })
             .map { !$0 }                                                                            // меняем на обратное, чтобы отменить значение кнопок
             .subscribe(onNext: {
-                ///print("binder", $0, "\n")
-                self.infoLable.text = "Ракета запущена"
-                self.launchButton.isSelected = $0                                                   // отменяем нажатие в свифте
+                print("binder", $0, "\n")
                 self.zapuskButton.isSelected = $0
+                self.launchButton.isSelected = $0
             })
             .disposed(by: bag)
         
@@ -65,7 +64,7 @@ class RocketVC: UIViewController {
             .tap
             .map { el -> Bool in
                 ///print("запуск",self.zapuskButton.isSelected)
-                return !self.zapuskButton.isSelected                                                // изначально false, так что мы меняем на true
+                return self.check(button: self.zapuskButton.isSelected) // изначально false, так что мы меняем на true
             }
             .map { el in                                                                            // тестовая функция
                 ///print("запуск",el, "\n")
@@ -82,11 +81,11 @@ class RocketVC: UIViewController {
             .rx
             .tap
             .map { el -> Bool in
-                ///print("Launch", self.launchButton.isSelected)
-                return !self.launchButton.isSelected
+                print("Launch", self.launchButton.isSelected)
+                return self.check(button: self.launchButton.isSelected)
             }
             .map { el in
-                ///print("Launch",el, "\n")
+                print("Launch",el, "\n")
                 return el
             }
             .share(replay: 2)
@@ -96,6 +95,14 @@ class RocketVC: UIViewController {
             .disposed(by: bag)
     }
     
+    
+    func check(button: Bool) -> Bool {
+        if button == true {
+            return false
+        } else {
+            return true
+        }
+    }
     
 //MARK: - Helpers
     private func moveUp(view: UIImageView) { view.center.y -= 300 }                                     // отправляем на
@@ -109,11 +116,15 @@ class RocketVC: UIViewController {
     }
     
 //MARK: - Animate Funcs
-    private func launchAnimation() {
+    private func launchAnimation(bool: Bool) {
+        guard bool == true else { return }
         animate(fun: moveUp, view: rocketImageView, image: launchRocket!)                                // запуск
+        self.infoLable.text = "Ракета запущена"
     }
-    private func returnAnimation() {
+    private func returnAnimation(bool: Bool) {
+        guard bool == true else { return }
         animate(fun: moveDown, view: rocketImageView, image: returnRocket!)                              // посадка
+        self.infoLable.text = "Ракета вернулась"
     }
 }
 
