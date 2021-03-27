@@ -6,8 +6,7 @@ class CounterVC: UIViewController {
     @IBOutlet weak var countLabel: UILabel!
     @IBOutlet weak var countButton: UIButton!
     
-    var presavedCount = 0
-    let bag = DisposeBag()
+    private var presavedCount = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()

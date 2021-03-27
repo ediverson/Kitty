@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="uFi-2e-R0e">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="m2s-pX-qgo">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
@@ -82,13 +82,25 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" id="0Vi-aD-Agb">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="TableViewCell" id="0Vi-aD-Agb" customClass="TableViewCell" customModule="Reactive_Milk" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="0Vi-aD-Agb" id="8jK-cm-Ibm">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Имя" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wwc-vJ-Jyw">
+                                                    <rect key="frame" x="20" y="11" width="160" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="nameLabel" destination="Wwc-vJ-Jyw" id="3nF-Zt-3Ff"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -97,23 +109,24 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </view>
                     <navigationItem key="navigationItem" id="Ni0-kb-1yt">
-                        <barButtonItem key="leftBarButtonItem" title="Item" id="izK-vn-p11"/>
-                        <barButtonItem key="rightBarButtonItem" title="Item" id="lij-aZ-ysd">
-                            <color key="tintColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="izK-vn-p11">
                             <connections>
-                                <action selector="addButton:" destination="TqO-ZX-l1H" id="0U8-8U-tWW"/>
+                                <action selector="deleteButton:" destination="TqO-ZX-l1H" id="XL1-Gm-XAt"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="lij-aZ-ysd">
+                            <connections>
+                                <action selector="addButton:" destination="TqO-ZX-l1H" id="nik-J6-5h3"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="add" destination="lij-aZ-ysd" id="hch-PF-6hB"/>
-                        <outlet property="delete" destination="izK-vn-p11" id="X8P-g9-gCa"/>
                         <outlet property="tableView" destination="9EI-7r-fDP" id="4zY-Dj-gP9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NhM-9V-QR9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1832" y="1574"/>
+            <point key="canvasLocation" x="1831.8840579710147" y="1573.6607142857142"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="FtD-IL-9Rs">
@@ -128,7 +141,7 @@
                     <connections>
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="ehJ-lE-LlS"/>
                         <segue destination="eKE-Wd-SrO" kind="relationship" relationship="viewControllers" id="5gS-Fg-S3a"/>
-                        <segue destination="Oxc-LS-w09" kind="relationship" relationship="viewControllers" id="mvg-Dj-fnH"/>
+                        <segue destination="Oxc-LS-w09" kind="relationship" relationship="viewControllers" id="dud-zD-XYm"/>
                         <segue destination="PLv-Ou-JKB" kind="relationship" relationship="viewControllers" id="idf-50-N5r"/>
                         <segue destination="uFi-2e-R0e" kind="relationship" relationship="viewControllers" id="b8N-bI-35l"/>
                     </connections>

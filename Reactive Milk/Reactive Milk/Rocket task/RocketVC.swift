@@ -14,7 +14,6 @@ class RocketVC: UIViewController {
     private let launchRocket = UIImage(named: "rocket")
     private let returnRocket = UIImage(named: "rocket 2")
     private let duration = 2.0
-    private let bag = DisposeBag()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,7 +28,7 @@ class RocketVC: UIViewController {
         let mainObs = Observable<Bool>
             .combineLatest(zapuskObs, launchObs) { (left, right) -> Bool in                         // комбинируем два нажатия
                 guard left == true && right == true else { return false }
-                print("l:", left, "r:", right)
+                ///print("l:", left, "r:", right)
                 return left && right                                                                // выводим результат в виде Bool
             }
             .share(replay: 2)
@@ -44,14 +43,15 @@ class RocketVC: UIViewController {
             })
             .map { !$0 }                                                                            // меняем на обратное, чтобы отменить значение кнопок
             .subscribe(onNext: {
-                print("binder", $0, "\n")
+                ///print("binder", $0, "\n")
                 self.zapuskButton.isSelected = $0
                 self.launchButton.isSelected = $0
             })
             .disposed(by: bag)
         
         mainObs
-            .bind(to: launchButton.rx.isSelected, zapuskButton.rx.isSelected)                       // вероятнее всего проблема тут
+            .map { !$0 }
+            .bind(to: launchButton.rx.isEnabled, zapuskButton.rx.isEnabled)                         // вероятнее всего проблема тут
             .disposed(by: bag)                                                                      // мне кажется, что байнд срабатывает раньше, чем подписка
     }
     
@@ -81,11 +81,11 @@ class RocketVC: UIViewController {
             .rx
             .tap
             .map { el -> Bool in
-                print("Launch", self.launchButton.isSelected)
+                ///print("Launch", self.launchButton.isSelected)
                 return self.check(button: self.launchButton.isSelected)
             }
             .map { el in
-                print("Launch",el, "\n")
+                ///print("Launch",el, "\n")
                 return el
             }
             .share(replay: 2)

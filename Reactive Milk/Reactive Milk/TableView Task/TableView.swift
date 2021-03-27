@@ -1,86 +1,46 @@
 import RxSwift
 import RxCocoa
-import RxDataSources
 import UIKit
 
 class TableView: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
-    var names = ["Name1","Name2","Name3","Name4","Name5",
-                "Name6","Name7","Name8","Name9","Name10"]
-    
-    
-
-    @IBOutlet weak var add: UIBarButtonItem!
-    @IBOutlet weak var delete: UIBarButtonItem!
-    let disposeBag = DisposeBag()
-    
-    let objNames = BehaviorRelay.init(value: [SectionModel(header: "", items: [Human.init(name: "Name1"),
-                                                                               Human.init(name: "Name2"),
-                                                                               Human.init(name: "Name3"),
-                                                                               Human.init(name: "Name4"),
-                                                                               Human.init(name: "Name5")]) ])
-    
-    let dataSourse = RxTableViewSectionedReloadDataSource<SectionModel>(configureCell: { _, table, indexPath, item -> UITableViewCell in
-        let cell = table.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        cell.textLabel?.text = item.name
-        return cell
-    })
+// Default value
+    private let names = BehaviorRelay(value: ["Кирилл", "Матвей", "Василий", "Яков"])
     
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {                                                                     // чтобы таблица строилась
+        super.viewDidAppear(true)                                                                                       // до появления на экране
+        setupView()
+    }
+    
+//MARK: - Setup view
+    private func setupView(){
+        names
+            .bind(to: tableView.rx.items) { (tableView, row, element) in                                                // привязываем BR к таблице
+                let cell = self.tableView.dequeueReusableCell(withIdentifier: "TableViewCell") as! TableViewCell        // настраиваем таблицу
+                cell.nameLabel.text = element                                                                           // настраиваем ячейку
+                return cell
+            }
+            .disposed(by: bag)
         
-        delete.rx.tap.asDriver()
-            .drive(onNext: { _ in
-                self.objNames.value.map { el in
-                    el.items
-                }
+        tableView.rx
+            .itemSelected
+            .subscribe(onNext: { indexPath in
+                self.tableView.deselectRow(at: indexPath, animated: true)                                               // рекция на нажатие на ячейку
             })
-            .disposed(by: disposeBag)
-        
-//        add.rx.tap.asDriver()
-//            .drive(onNext: {
-//                var item: [String] {
-//                    var items = [String]()
-//                    let random = Int.random(in: 1...4)
-//                    items.append(contentsOf: people)
-//
-//                    return items
-//                }
-//
-//                self.objNames.value += [SectionModel(header: "", items: item)]
-//                print(self.names)
-//                self.tableView.reloadData()
-//            })
-//            .disposed(by: disposeBag)
-        
+            .disposed(by: bag)
     }
+//MARK: - Create buttons
+    @IBAction func addButton(_ sender: Any) {
+        names.accept([Names.getName()] + names.value)                                                                   // BR получает новое значение
+    }                                                                                                                   // и добавляет в него дефолное
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(true)
-        table()
+    
+    @IBAction func deleteButton(_ sender: Any) {
+        names.accept(Names.removeName(names: names.value))                                                              // BR принимает обновленный массив
     }
-    
-    func table(){
-        
-        objNames
-            .bind(to: tableView
-                    .rx
-                    .items(dataSource: dataSourse))
-            .disposed(by: disposeBag)
-        
-//        objNames
-//            .bind(to: tableView
-//                    .rx
-//                    .items) { tableView, index, element in
-//
-//                let cell = UITableViewCell(style: .default, reuseIdentifier: "cell")
-//                cell.textLabel?.text = element.name
-//                return cell
-//                }
-//
-    }
-    
-    
-
 }

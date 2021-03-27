@@ -13,10 +13,6 @@ class LogInVC: UIViewController {
     private var validUser: Observable<Bool?>!
     private var validPass: Observable<Bool?>!
     
-// helpers
-    private let time: RxTimeInterval = .milliseconds(800)
-    private let bag = DisposeBag()
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.sendButton.isEnabled = false
@@ -44,7 +40,9 @@ class LogInVC: UIViewController {
             .tap
             .throttle(time, scheduler: MainScheduler.instance)
             .bind { [weak self] in
-                print("Login: ", self!.emailTextField.text!, "\n",  // тут у нас точно будет значение,
+                print("\n",
+                      "Login: ", self!.emailTextField.text!,
+                      "\n",                                         // тут у нас точно будет значение,
                       "Password: ", self!.passTextField.text!)      // так как иначе кнопка недоступна
             }
             .disposed(by: bag)

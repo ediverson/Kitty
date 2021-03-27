@@ -8,10 +8,6 @@ class ServerRequestVC: UIViewController {
     @IBOutlet weak var resultLabel: UILabel!
     
     private var searchString = Observable.of("")                    // пустая sequence
-    private let bag = DisposeBag()                                  // мусорка
-    private let time: RxTimeInterval = .milliseconds(800)           // 800, а не 500 для наглядности,
-                                                                    // так как долго не мог решить проблему неработающего оператора .throttle,
-                                                                    // а он просто отправлял запрос слишком быстро
     
     override func viewDidLoad() {
         super.viewDidLoad()
