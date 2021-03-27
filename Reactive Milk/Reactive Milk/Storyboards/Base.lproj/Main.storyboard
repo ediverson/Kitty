@@ -109,11 +109,18 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </view>
                     <navigationItem key="navigationItem" id="Ni0-kb-1yt">
+                        <nil key="title"/>
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="izK-vn-p11">
                             <connections>
                                 <action selector="deleteButton:" destination="TqO-ZX-l1H" id="XL1-Gm-XAt"/>
                             </connections>
                         </barButtonItem>
+                        <textField key="titleView" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" id="lfU-rg-dww">
+                            <rect key="frame" x="85" y="5" width="244" height="34"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textInputTraits key="textInputTraits"/>
+                        </textField>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="lij-aZ-ysd">
                             <connections>
                                 <action selector="addButton:" destination="TqO-ZX-l1H" id="nik-J6-5h3"/>
@@ -122,6 +129,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="9EI-7r-fDP" id="4zY-Dj-gP9"/>
+                        <outlet property="textField" destination="lfU-rg-dww" id="U8j-WF-DeW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NhM-9V-QR9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
