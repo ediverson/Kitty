@@ -6,6 +6,8 @@ class Names {
                                   "Тимур", "Виталий", "Руслан",
                                   "Глеб", "Николай", "Анатолий"]
     
+    static var newNames: [String] = []
+    
     static func getName() -> String {
         return (Names.names[Int.random(in: 0..<Names.names.count)])         // выдаем рандомное значение через .random
                                                                             // в диапазоне от нуля до кол-ва элементов в массиве names
@@ -13,7 +15,7 @@ class Names {
             
     static func removeName(names: [String]) -> [String] {
         if names != [] {
-            var newNames = names                                            // создаем переменную
+            self.newNames = names                                            // создаем переменную
             newNames.removeLast()                                           // удаляем последнее значение
             return newNames                                                 // возвращаем обновленный массив
         } else {
@@ -22,16 +24,15 @@ class Names {
     }
             
     static func filterName(value: [String], el: String) -> [String] {
-        var filteredNames: [String] = []                                    // пустой массив
         
         if el != "" {                                                       // если в поиске не пусто
             for name in value {                                             // проходимся по элементам массива
                 if name.contains(el){                                       // смотрим содержит ли элементы нужные нам данные
-                    filteredNames.append(name)                              // если да, то добавляем в новый массив
+                    self.newNames.append(name)                              // если да, то добавляем в новый массив
                 }
             }
-            ///print("f", filteredNames)
-            return filteredNames                                            // возвращаем его
+            ///print("f", self.newNames)
+            return self.newNames                                            // возвращаем его
         } else {                                                            // если строка пустая
             ///print("v", value)
             return value                                                    // возвращаем исходный массив

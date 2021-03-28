@@ -8,10 +8,20 @@ class TableView: UIViewController {
     
 // Default value
     private let names = BehaviorRelay(value: ["Кирилл", "Матвей", "Василий", "Яков"])
+    private var presavedNames = BehaviorRelay<[String]>(value:[])
+    private var presavedNames2: [String] = []
     private var searchString = Observable.of("")
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        names
+            .do(onNext: {
+                print(1, $0.count)
+            })
+            .bind(to: presavedNames)
+            .disposed(by: bag)
+        
+        presavedNames2.append(contentsOf: names.value)
     }
     
     override func viewDidAppear(_ animated: Bool) {                                                                     // чтобы таблица строилась
@@ -39,6 +49,7 @@ class TableView: UIViewController {
     }
     
     private func setUpTF(){
+        
         searchString = textField
             .rx
             .text
@@ -48,22 +59,34 @@ class TableView: UIViewController {
             .skip(1)                                                                                                    // пропускаем при первом нажатии
             .distinctUntilChanged()
                                         /// фильтрации через .filter {  $0 != "" } нет, так как нам нужно получать пустую строку, когда пользователь задал что-то в поиске а потом стер
+        
+
+        
         searchString
             .map { el -> String in
-                self.names.accept(Names.filterName(value: self.names.value, el: el))                                    // вся логика в модели
+                if el != ""{
+                    self.names.accept(Names.filterName(value: self.names.value, el: el))                                    // вся логика в модели
+                } else {
+                    self.names.accept(self.presavedNames2)
+                }
+                print("presaved2: \(self.presavedNames2.count), names2: \(self.names.value.count)")
                 return el                                                                                               // для красивого принта
             }
             .subscribe(onNext: { el in
-                print("Ищем: \(el)")                                                                                    // только для галочки
+                ///print("Ищем: \(el)")                                                                                    // только для галочки
             })
             .disposed(by: bag)
     }
 //MARK: - Create buttons
     @IBAction func addButton(_ sender: Any) {
         names.accept([Names.getName()] + names.value)                                                                   // BR получает новое значение
-    }                                                                                                                   // и добавляет в него дефолное
+        self.presavedNames2.insert(Names.getName(), at: 0)
+    }                                                                                                                   // и добавляет к нему дефолное
+    
     
     @IBAction func deleteButton(_ sender: Any) {
         names.accept(Names.removeName(names: names.value))                                                              // BR принимает обновленный массив
+        self.presavedNames2.removeLast()
+        
     }
 }
