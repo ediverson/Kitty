@@ -15,7 +15,7 @@ class Names {
             
     static func removeName(names: [String]) -> [String] {
         if names != [] {
-            self.newNames = names                                            // создаем переменную
+            self.newNames = names                                           // создаем переменную
             newNames.removeLast()                                           // удаляем последнее значение
             return newNames                                                 // возвращаем обновленный массив
         } else {
