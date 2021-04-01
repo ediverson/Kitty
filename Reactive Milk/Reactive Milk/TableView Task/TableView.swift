@@ -49,8 +49,8 @@ class TableView: UIViewController {
 
         names
             .bind(to: tableView.rx.items) { (tableView, row, element) in
-                let cell = self.tableView.dequeueReusableCell(withIdentifier: "TableViewCell")! as UITableViewCell
-                cell.textLabel?.text = element
+                let cell = self.tableView.dequeueReusableCell(withIdentifier: "TableViewCell") as! TableViewCell
+                cell.nameLabel?.text = element
                 return cell
             }
             .disposed(by: bag)

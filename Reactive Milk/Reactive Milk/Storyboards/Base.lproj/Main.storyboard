@@ -99,7 +99,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="nameLabel" destination="Wwc-vJ-Jyw" id="3nF-Zt-3Ff"/>
+                                            <outlet property="nameLabel" destination="Wwc-vJ-Jyw" id="lR6-D2-Stg"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
